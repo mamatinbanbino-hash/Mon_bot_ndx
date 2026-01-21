@@ -8,11 +8,12 @@ RUN apt-get update && \
   apt-get upgrade -y && \
   rm -rf /var/lib/apt/lists/*
 
-# AJOUT DE CETTE LIGNE IMPORTANTE :
 WORKDIR /app
 
-COPY package.json .
+# On utilise une étoile pour attraper le fichier peu importe la majuscule
+COPY [pP]ackage.json .
 RUN npm install
 COPY . .
 CMD ["node", "index.js"]
+
 
