@@ -10,10 +10,11 @@ RUN apt-get update && \
 
 WORKDIR /app
 
-# On utilise une étoile pour attraper le fichier peu importe la majuscule
+# Cette ligne est la clé : elle cherche package.json avec n'importe quelle majuscule
 COPY [pP]ackage.json .
 RUN npm install
 COPY . .
 CMD ["node", "index.js"]
+
 
 
